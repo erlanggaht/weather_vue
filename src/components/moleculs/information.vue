@@ -1,22 +1,22 @@
-<script>
+<script setup>
+import { ref } from 'vue';
 import latitude from '../../assets/lat.svg'
 import longitude from '../../assets/longitude.svg'
 import weather from '../../assets/weather.svg'
+import observation from '../../assets/observation.svg'
 
-export default{
-   data () {
-    return {
-        icon : {latitude,longitude,weather}
-    }
-   }
-}
+const icon = ref({latitude,longitude,weather,observation})
+
+
+
 </script>
 
 <template>
-    <ul class="list_wheater" style="list-style: none;padding:1rem 0 0 0;color:#fff;font-weight:400">
-        <li><img :src="icon.latitude" alt="latitude"/> Latitude.  -6.712</li>
-        <li><img :src="icon.longitude" alt="longitude"/> Longitude.  108.509</li>
-        <li><img :src="icon.weather" alt="weather"/> Sunny</li>
+    <ul class="list_wheater" style="list-style: none;padding:1rem 0 0 0;color:#fff;font-weight:400" v-for="(item, index) in this.$store.state.data" :key="index">
+        <li><img :src="icon.latitude" alt="latitude"/> {{item.location.lat}}</li>
+        <li><img :src="icon.longitude" alt="longitude"/> {{item.location.lon}}</li>
+        <li><img :src="icon.weather" alt="weather"/> {{item.current.weather_descriptions[0]}}</li>
+        <li><img :src="icon.observation" alt="weather"/>Observation Time - {{item.current.observation_time}} </li>
       </ul>
 
       <div style="padding:.3rem;height:8rem;display:flex;align-items:flex-end">

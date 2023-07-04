@@ -1,17 +1,29 @@
-<script setup >
-
+<script >
 import Navbar from './orgarnism/navbar.vue'
 import Main from './orgarnism/main.vue'
+
+
+export default {
+  components : {
+    Navbar,Main
+  },
+async mounted () {
+    const response = await fetch('http://localhost:3000/weather')
+    const result = await response.json()
+    this.$store.commit('add_data',result)
+  
+  }
+}
+
+
+
 
 </script>
 
 <template>
   <div class="layout">
-    
-  
     <Navbar/>
     <Main/>
-   
   </div>
 </template>
 
@@ -22,7 +34,7 @@ import Main from './orgarnism/main.vue'
   display: flex;
   padding: 2rem 3rem;
   gap: 0px;
-  background-image: url('https://getwallpapers.com/wallpaper/full/4/4/9/928618-large-dark-moon-wallpapers-1920x1080-for-ios.jpg');
+  background-image: url('../assets/bg.jpg');
   object-fit: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -37,7 +49,7 @@ import Main from './orgarnism/main.vue'
   display: flex;
   flex-direction: column;
   justify-items: space-between;
-  width: 620px;
+  width: 350px;
 }
 
 #main{
