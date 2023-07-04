@@ -1,0 +1,43 @@
+{
+
+      "request": {
+            "type": "City",
+            "query": "Sumedang Utara, Indonesia",
+            "language": "en",
+            "unit": "m"
+      },
+      "location": {
+            "name": "Sumedang Utara",
+            "country": "Indonesia",
+            "region": "Indonesia (general) ",
+            "lat": "-6.850",
+            "lon": "107.917",
+            "timezone_id": "Asia/Jakarta",
+            "localtime": "2023-07-05 04:05",
+            "localtime_epoch": 1688529900,
+            "utc_offset": "7.0"
+      },
+      "current": {
+            "observation_time": "09:05 PM",
+            "temperature": 19,
+            "weather_code": 113,
+            "weather_icons": [
+                  "https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png"
+            ],
+            "weather_descriptions": [
+                  "Clear"
+            ],
+            "wind_speed": 7,
+            "wind_degree": 187,
+            "wind_dir": "S",
+            "pressure": 1011,
+            "precip": 0,
+            "humidity": 91,
+            "cloudcover": 14,
+            "feelslike": 19,
+            "uv_index": 1,
+            "visibility": 10,
+            "is_day": "no"
+      }
+
+}
