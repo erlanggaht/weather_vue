@@ -1,4 +1,4 @@
-<script >
+<script>
 import Navbar from './orgarnism/navbar.vue'
 import Main from './orgarnism/main.vue'
 
