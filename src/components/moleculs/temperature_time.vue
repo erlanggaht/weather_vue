@@ -1,8 +1,7 @@
-<script>
+<script setup>
 import weather from '../../assets/weather.png'
-export default {
 
-}
+
 
 </script>
 
