@@ -7,16 +7,13 @@ import {host_example,host_api} from '../utility/host_api.js'
 
 const store = useStore()
 
-onMounted(async () => {
+onBeforeMount(async () => {
+  const enter_region = prompt('enter region')
+  store.commit('setRegion',enter_region)
   const response = await fetch(host_api(store.state.region))
   const result = await response.json()
   store.commit('add_data',[result])
 
-})
-
-onBeforeMount(() => {
-  const enter_region = prompt('enter region')
-  store.commit('setRegion',enter_region)
 }) 
 
 
