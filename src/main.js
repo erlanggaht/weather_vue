@@ -22,6 +22,11 @@ const store = createStore({
     getTodoById: (state) => (id) => {
       return state.datas.find(todo => todo.id === id)
     }
+  },
+  actions: {
+    add_data (context) {
+      context.commit('add_data')
+    }
   }
 })
 

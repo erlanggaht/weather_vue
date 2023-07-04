@@ -1,7 +1,9 @@
 <script setup>
 import { computed, ref } from 'vue';
 import dayOfWeekAsString from '../../utility/days_string.js'
+import { useStore } from 'vuex'
 
+const store = useStore()
 const temp_random = ref(0)
 const gettime = ref(null)
 
@@ -22,7 +24,7 @@ const get_time = computed(() => {
 </script>
 
 <template>
-    <div style="text-align: center;margin:3rem 0" v-for="(item,i) in  this.$store.state.data " :key="i">
+    <div style="text-align: center;margin:3rem 0" v-for="(item,i) in  store.state.data " :key="i">
         <img src='../../assets/weather.png' alt="weather" style="height: 155px;width:155px;" />
         <p class="text_celcius">{{item.current.temperature}} {{temp_random_set}}<span style="position: absolute;top:0;font-size:2.8rem">℃</span></p>
         <p class='text_time' style="text-align: left;font-size:1.3rem;color:white;padding-left:.6rem; margin:0;   font-weight: 700;

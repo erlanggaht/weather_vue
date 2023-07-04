@@ -4,8 +4,9 @@ import rain from '../../assets/rain.png'
 import sun from '../../assets/sun.png'
 import light from '../../assets/light.png'
 import Card_current from '../moleculs/card_current.vue'
-import { computed, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
+import Layout from '../Layout.vue'
 
 const data_weeks = ref(data_week)
 const data_current = ref(null)
@@ -35,12 +36,15 @@ const store = useStore()
         return data_current.value =  items_api
 }
 
-onMounted(() => {
-    setTimeout(()=>{
-        set_dataCurrent(store.state.data[0]?.current)
-    },1000)
-   
+onMounted(async () => {
+  const response = await fetch('http://localhost:3000/weather')
+  const result = await response.json()
+  set_dataCurrent(result[0].current)
+
 })
+
+        
+
 </script>
 
 <template>
@@ -52,7 +56,7 @@ onMounted(() => {
                 <a href="" @click.prevent>Week</a>
             </div>
             <div style="color:#fff;font-weight:400;font-style:italic;padding-right:20px">
-                <p>Timezone : {{ this.$store.state.data[0]?.location.timezone_id }}</p>
+                <p>Timezone : {{ store.state.data[0]?.location.timezone_id }}</p>
             </div>
         </div>
 

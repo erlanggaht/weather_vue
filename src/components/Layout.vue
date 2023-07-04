@@ -10,7 +10,6 @@ const store = useStore()
 onMounted(async () => {
   const response = await fetch('http://localhost:3000/weather')
   const result = await response.json()
-
   store.commit('add_data',result)
   
  
