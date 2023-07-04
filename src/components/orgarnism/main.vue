@@ -6,8 +6,7 @@ import light from '../../assets/light.png'
 import Card_current from '../moleculs/card_current.vue'
 import { onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
-import Layout from '../Layout.vue'
-
+import {host_api,host_example} from '../../utility/host_api.js'
 const data_weeks = ref(data_week)
 const data_current = ref(null)
 const store = useStore()
@@ -37,9 +36,9 @@ const store = useStore()
 }
 
 onMounted(async () => {
-  const response = await fetch('http://localhost:3000/weather')
+  const response = await fetch(host_api(store.state.region))
   const result = await response.json()
-  set_dataCurrent(result[0].current)
+  set_dataCurrent(result.current)
 
 })
 

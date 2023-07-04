@@ -20,8 +20,8 @@ const store = useStore()
         <li><img :src="icon.observation" alt="weather"/>Observation Time - {{item.current.observation_time}} </li>
       </ul>
 
-      <div style="padding:.3rem;height:8rem;display:flex;align-items:flex-end">
-        <p style="color:#fff;font-size:1rem;margin:0;padding:0">Bandung, Indonesia</p>
+      <div style="padding:.3rem;height:8rem;display:flex;align-items:flex-end"  v-for="(item, index) in store.state.data" :key="index">
+        <p style="color:#fff;font-size:1rem;margin:0;padding:0">{{item.request.query}}</p>
       </div>
 </template>
 

@@ -1,11 +1,18 @@
-<script>
+<script setup>
+import { ref } from 'vue';
+import {useStore} from 'vuex'
 
+const input = ref('Tahap Develop')
+
+function search () {
+  alert(input.value)
+}
 
 </script>
 
 <template>
-  <div class="search">
-    <input placeholder="search" />
+  <div class="search"> 
+    <input placeholder="search" @keypress.enter="search" />
   </div>
 </template>
 

@@ -9,6 +9,7 @@ const store = createStore({
   state : {
       count: 0,
       data: [],
+      region : ''
   },
   mutations: {
     increment (state) {
@@ -16,6 +17,9 @@ const store = createStore({
     },
     add_data (state,data_api) {
         state.data = data_api
+    },
+    setRegion (state,region) {
+      state.region = region
     }
   },
   getters: {

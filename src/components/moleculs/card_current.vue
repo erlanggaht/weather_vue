@@ -8,7 +8,7 @@ data : Array | Object
 <template>
     <div class="card_current" v-for="(item, index) in data" :key="index">
         <h4 style="text-transform :capitalize"> {{ Object.keys(item).join('').split('_').join(' ') }}</h4>
-        <p>{{ Object.values(item).join(' ')}}</p>
+        <p v-if="item">{{ Object.values(item).join(' ')}}</p>
         <p class="p-bottom">-</p>
     </div> 
 </template>

@@ -2,23 +2,22 @@
 import Navbar from './orgarnism/navbar.vue'
 import Main from './orgarnism/main.vue'
 import { useStore } from 'vuex'
-import {onMounted} from 'vue'
+import {onMounted,onBeforeMount,ref} from 'vue'
+import {host_example,host_api} from '../utility/host_api.js'
+
 const store = useStore()
 
-
-
 onMounted(async () => {
-  const response = await fetch('http://localhost:3000/weather')
+  const response = await fetch(host_api(store.state.region))
   const result = await response.json()
-  store.commit('add_data',result)
-  
- 
+  store.commit('add_data',[result])
 
 })
 
-
-
-
+onBeforeMount(() => {
+  const enter_region = prompt('enter region')
+  store.commit('setRegion',enter_region)
+}) 
 
 
 
