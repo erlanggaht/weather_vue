@@ -1,19 +1,24 @@
-<script>
+<script setup>
 import Navbar from './orgarnism/navbar.vue'
 import Main from './orgarnism/main.vue'
+import { useStore } from 'vuex'
+import {onMounted} from 'vue'
+const store = useStore()
 
 
-export default {
-  components : {
-    Navbar,Main
-  },
-async mounted () {
-    const response = await fetch('http://localhost:3000/weather')
-    const result = await response.json()
-    this.$store.commit('add_data',result)
+
+onMounted(async () => {
+  const response = await fetch('http://localhost:3000/weather')
+  const result = await response.json()
+
+  store.commit('add_data',result)
   
-  }
-}
+ 
+
+})
+
+
+
 
 
 
@@ -22,14 +27,12 @@ async mounted () {
 
 <template>
   <div class="layout">
-    <Navbar/>
-    <Main/>
+    <Navbar />
+    <Main />
   </div>
 </template>
 
 <style scoped>
-
-
 .layout {
   display: flex;
   padding: 2rem 3rem;
@@ -52,7 +55,7 @@ async mounted () {
   width: 350px;
 }
 
-#main{
+#main {
   background-color: #09101f;
 }
 
@@ -60,8 +63,9 @@ async mounted () {
   .layout {
     padding: 1rem 1rem;
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
   }
+
   #navbar {
     padding: 1rem;
     background-color: #172032;
@@ -71,9 +75,10 @@ async mounted () {
     width: 100%;
     border-radius: 2rem 2rem 0 0 !important;
   }
+
   #main {
     border-radius: 0 0 2rem 2rem !important;
   }
-  
+
 }
 </style>
